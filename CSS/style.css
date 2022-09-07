@@ -1,0 +1,345 @@
+body{
+  font-family: 'Open Sans', arial, sans-serif;
+  color: #666;
+  line-height: 1.7; /*espaçamento entre as linhas 2 espaçamento duplo */
+}
+
+a{ /*todos os links*/
+  transition: color .2s linear, border .2s linear; /* efeito linear com 0.2s transição de cor, e também efeito na borda*/
+  text-decoration: none; /*retira o sublinhado do link*/
+  border-bottom: 1px dotted; /*coloca uma borda pontilhada na parte de baixo de todos os link's*/
+  color: #49bf9d; /*mudando a cor*/
+}
+a:hover{
+  border-bottom-color: transparent; /*efeito para deixar transparente a borda e nao retirar ela*/
+}
+
+p{
+  margin: 0 0 2em; /*utilizando o 2em na margem para os paragrafos acompanhar o tamanho da fonte*/
+}
+img{
+  /*width: 100%;/*ajusta as imagens na tela qdo mudar o tamanho da tela*/
+  max-width: 100%;/*ajusta a imagem na tela até o maximo do tamanho em pixel da imagem*/
+}
+/* Padronizando */
+h1, h2, h3, h4, h5, h6{
+  color: #787878; /*muda cor*/
+  font-weight: normal; /* retira negrito*/
+  /* margin: 0 0 24px;  ajustando margem dos h1 até h6 superior 0, direita 0, embaixo 24px e esquerda repete direita 0 ******mas não funcionou*******/
+  margin: 1em 0; /* "alterando para o metodo 1emp" ajustando margem dos h1 até h6 superior 0, direita 0, embaixo 1em e esquerda repete direita 0, esse 1em significa que a medida vai respeitar apenas os h1's h2's até h6's */
+}
+
+/* Formatando cada h1's até h6's - individualmente*/
+h1{
+  font-size: 36px;
+}
+h2{
+  font-size: 30px;
+}
+h3{
+  font-size: 26px;
+}
+h4{
+  font-size: 22px;
+}
+h5{
+  font-size: 18px;
+}
+h6{
+  font-size: 15px;
+}
+
+sub, sup{
+  font-size: 12px; /*mudando tamanho da fonte*/
+}
+blockquote{
+  border-left: 5px solid #efefef; /*adicionando a borda lado esquerdo o tipo dela e a cor*/
+  margin: 2em 0;/* margem 2em pra cima e pra baixo e 0 direita esquerda, lembrando que o 2em respeita o tamanho da fonte e para respeitar o espaçamento da escrita*/
+  padding: 0.5em 0 0.5em 1.5em; /*emcima direita abaixo e esquerda*/
+}
+blockquote p{
+  margin-bottom: .5em;
+}
+blockquote p:last-child{
+  margin-bottom: 0;
+}
+
+code{
+  background-color: #f7f7f7; /*cor de fundo da caixa que sera feita*/
+  border-radius: .35em;/* fazendo uma borda arredondada e usando a medida "em" quando aumenta o tamanho da fonte a borda acompanha*/
+  border: 2px solid #efefef; /*aplicando borda, borda solida e cor*/
+  font-size: .9em;/*tamanho da fonte*/
+  padding: 0.25em 0.65em; /*0.25 pra cima e pra baixo e 0.65 direita e esquerda, "em" para respeitar o tamanho da fonte*/
+  font-family: "courier new", monospace;/*fonte usada para apresentar códigos na web. o nome da fonte esta escrito entre aspas duplas pq tem espaço no meio do nome e se nao tiver a primeira fonte instalada na maquina usar a segunda fonte "monospace"*/
+  color: #929292; /*mudar cor da letra*/
+}
+
+pre code{
+  display: block; /*transforma em caixa onde ta escrito o code*/
+}
+
+ul, ol{
+  margin: 0;/*zerando margem*/
+  padding: 0;/*zerando padding*/
+  /*list-style-position: inside;/*ajustando o espaço do bullet com a escrita*/
+  padding-left: 1.1em;/*comentado a linha de cima e usado esse metodo para ajuste dos bullets e escrita o espaçamento*/
+}
+li{
+  padding-left: 0.5em;/*ajusatndo o espaçamento nas listas*/
+}
+.hidden{ /*efeito nos icons para não aparecer a escrita na tag SPAN, mas os leitores de tela consigam ler o texto do q se refere ex. Facebook telegram etc.*/
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  /* visibility: hidden; Foi retirada, pq essa tag não deixa os leitores de tela ler a escrita dentro da tag span */
+  display: block;
+}
+.ul-alternate{
+  list-style-type: none; /*retira os bullets*/
+  padding-left: 0; /*zerando o padding aplicado no li superior*/
+}
+.ul-alternate li{
+  border-bottom: 2px solid rgb(224, 222, 222);/*coloca borda nas linhas das listas na parte de baixo*/
+  padding-left: 0; /*zerando o padding aplicado no li superior*/
+}
+.ul-alternate li:last-child{/*last-child pega o ultimo filho ou melhor a ultima li ou ultima linha da li*/
+  border:0;
+}
+.ul-icons{
+  list-style-type: none; /*retira os bullets*/
+  padding-left: 0; /*zerando o padding aplicado no li superior*/
+}
+.ul-icons li{
+  display: inline-block; /*mudar o comportamento para linha, para ficar um ao lado do outro - comportamento em bloco fica um embaixo do outro*/
+  font-size: 2em; /*aumetnar o tamanho do desenho pq é uma fonte*/
+  color:#49bf9d;/*mudar a cor*/
+}
+
+input, label, textarea, select{
+  display: inline-block;/*transformando os elementos de linha em elementos de bloco*/
+  width: 100%;/*Tamanho na tela dos elementos*/
+  box-sizing: border-box; /*faz com que respeite o tamanho total do tamanho informado */
+}
+input, textarea, select{
+  background-color: #ccc; /*cor de fundo*/
+  padding: 15px; /*adicionando espaços interno deixar mais cheio os elementos mais gordinho*/
+  border-radius: 5px;/*deixar cantos arredondados nos inputs do form*/
+  border: 3px solid transparent; /*retira a borda do elemento*/
+  margin-bottom: 15px;/*aumentando o espaço entre os elementos na parte de baixo*/
+}
+input[type="radio"], input[type="checkbox"]{/*seleciona por atributo*/
+  width: auto; /*faz voltar pro lugar que estavam*/
+}
+input:focus, textarea:focus{ /*funcao focus, quando cursor estiver dentro do campo ele se destaca*/
+  border: 3px solid #49bf9d;
+  outline: none;/*retira a linha padrão do browser que deixa na cor preta ou azul, nao deixando ficar a cor colocada manualmente*/
+}
+textarea{
+  height: 10em;/*altura do textarea*/
+}
+
+.button-default{
+  background-color: #49bf9d; /*mudando a cor de fundo*/
+  border: 3px solid #49bf9d; /*incluindo borda de 3px borda solida e na cor do fundo*/
+  color: white; /*cor da letra*/
+  padding: .75em 1.5em; /*incluir espaço dentro da caixa ficar mais largo cima e baixo e 1.5 direita esquerda*/
+  border-radius: 5px; /*arrdendar a borda*/
+  font-size: .8em; /*tamanho da fonte*/
+  display: inline-block; /*transformando em elemento de bloco*/
+  width: auto;/*ajustar tamanho botao no form*/
+  transition: all .5s; /*all -> significa qualquer propriedade que mudar no estado do hover ele vai animar*/
+  cursor: pointer; /*vai fazer o cursor virar a mãozinha*/
+}
+.button-default:hover{
+  background-color: #aae5d5; /*efeito de bg no botão*/
+  border-color: transparent;/*tira a borda no efeito*/
+}
+.button-default-stroke{
+  background-color: white; /*cor do fundo*/
+  border-color: #efefef; /* cor da borda*/
+  color: inherit; /*cor da letra pegou dos paragrafos ou da classe pai (herdou)*/
+}
+
+.button-default-stroke:hover{ /*efeito hover mudar cor letra e borda*/
+  color: #49bf9d;
+  border-color: #49bf9d;
+  background-color: white;
+}
+
+
+.button-default-small{
+  font-size: 0.65em;
+}
+.button-default-big{
+  font-size: 1em;/*fonte do botao*/
+}
+.button-default-full{
+  /* width: 100%; */
+  display: block; /*transformando em elemento de bloco para ficar 100% na linha*/
+  text-align: center; /*alinhando o texto no centro do botao*/
+}
+.imagem-link{
+  border: 0; /*retirou o pontilhado de outra class que apareceu onde nao era*/
+}
+.table{
+  width: 100%;/*largura de 100% para aproveitar a area toda disponivel*/
+  margin: 0 0 2em 0;
+  border-collapse: collapse;/*borda da tabela ->collapse tira o espaço*/
+  text-align: left;/*alinhamento do texto*/
+}
+.table td{
+  padding: 0.75em;/*espaçamento interno*/
+}
+.table th{
+  background-color: #ccc; /*cor de fundo*/
+  padding: 0.75em;/*espaçamento interno*/
+}
+.table tbody tr td{ 
+  border-top: 1px solid #ccc; /*colocou borda na linha do meio da tabela*/
+}
+.table tbody tr:first-child td{ /*pegou a primeira tr e as td dentro dela */
+  border-top: 2px solid #666; /*colocou borda na linha abaixo do cabeçalho da tabela*/
+}
+.table tbody tr:last-child td{ /*pegou a ultima tr e a td dentro dela */
+  border-bottom: 2px solid #666; /*colocou borda na ultima linha da tabela*/
+}
+/* .table tbody tr:nth-child(1)  td,.table tbody tr:nth-child(3)  td,.table tbody tr:nth-child(5)  td{/* consigo escolher qual linha eu quero colocando ou quais linhas eu quero, o numero da linha dentro dos parenteses
+  background-color: #bbb;
+} */
+.table tbody tr:nth-child(even){/* posso usar esse comando para substituir o comando da linha de cima comentada, "odd para linhas impares e "even""linhas pares*/
+  background-color: #eee;
+}
+
+.table-alternate tbody td, .table-alternate tbody tr:first-child td, .table-alternate tbody tr:last-child td{
+  border: 1px solid #ddd;/*coloca borda em volta*/
+}
+
+.main-header{
+  position: fixed; /*fixa a tela do lado esquedo */
+  top: 0;
+  left: 0;
+  height: 100%; /*deixa a tela com a altura total de 100%*/
+  width: 35%; /*limita o tamanho do espaço q desejo */
+  padding: 124px 54px 72px; /* copiada da class debaixo apos ajuste*/
+  box-sizing: border-box; /*copiado da class abaixo após ajuste*/
+  background-image: url(../images/overlay.png), url(../images/bg.jpg); /*duas imagens de fundo a primeira é um textura e a segunda imagem é a paisagem*/
+  background-position: left top;  /* posição e tamanho das imagens de fundo*/
+  background-size: auto, cover;  /*tamanho da img de fundo; o primeiro comando "auto" é ref. a primeira img e após a virgula é ref. a 2a img "cover" img toda na tela*/
+  text-align: right; /* alinhamento da escrita a direita */
+}
+
+.main-header-title{
+  font-size: 22px; /* tamanho da fonte*/
+  line-height: 1.5; /*espaçamento entre as escritas*/
+  color: rgba(255, 255, 255, .5); /* cor da fonte e transparencia */
+  font-weight: normal; /*retira o negrito da tag H1*/
+  
+}
+
+.main-header-title strong{
+  color: white; /*cor da fonte*/
+  font-weight: normal; /*retirando o negrito*/
+}
+
+.main-header-link{
+  color: inherit; /* "inherit"significa herença, então esta herdando a cor do elemento pai .main-header-title, isso é pra quando mudar a cor na class PAI o filho herdar essa cor sem precisar ficar mudando*/
+}
+
+.main-header-link:hover{ /*efeito no mouse, passa em cima e muda de cor*/
+  color: #49bf9d;
+}
+
+.main-content{
+  width: 65%; /*diferença do restante da pagina ficada para dar 100% */
+  margin-left: 35%;
+  padding: 124px 54px 72px;
+  box-sizing: border-box; /*serve para a medida ser total do quadro e nao aumentar com a medida já colcoada e retirar o scrool abaixo da pagina*/
+}
+.main-header-link img{
+  border-radius: 50%;
+  overflow: hidden; /*podemos precisar para remover o conteudo, pode precisar em outros browser*/
+}
+.recent-works-card img{
+  border-radius: 10px;/*deixa arredondado os cantos das imagens*/
+  overflow: hidden; /*podemos precisar para remover o conteudo, pode precisar em outros browser*/
+}
+
+  
+.gallery-img img{
+ width: 100%; /*deixar a imagem principal acima em 100% do quadro*/
+ 
+}
+.gallery-thumb img, .gallery-img img{
+  margin-bottom: 2%; /*espaçamento entre os elementos*/
+  display: inline-block;/*transformar o elemento de linha em bloco*/
+  border-radius: 5px; /*deixar bordas arredondadas dos elementos*/
+}
+.img-left{
+  float: left;
+}
+.img-right{
+  float: right;
+}
+
+.main-footer{
+  position: fixed;/*deixar ele fixo para aparecer*/
+  bottom: 0; /*é o espaço do final da tela*/
+  width: 35%; /*mesma largura do header*/
+  left:0; 
+  padding: 0 54px 72px 0; /* copiada da class debaixo apos ajuste*/
+  box-sizing: border-box; /*copiado da class abaixo após ajuste*/
+  text-align: right; /* alinhamento da escrita a direita */
+  
+}
+.ul-icons, .icon-link{
+  font-size: 22px;
+  list-style-type: none;
+  color: rgba(255, 255, 255, .5);
+  border: transparent;
+}
+
+.ul-icons, .icon-link:hover{
+  color: #49bf9d;
+  transition: .5s;
+}
+
+.copyright li, a{
+  font-size: 12px;
+  list-style-type: none;
+  display: inline-block;
+  color: rgba(255, 255, 255, .5);
+}
+/* Grid */
+
+.row{
+  overflow: auto; /*Para que os caras abaixo consigam seguir a altura e para matar o reflexo do "float left" aplicado na class logo abaixo*/
+}
+.col-metade{
+  width: 49%; /*largura vale metade por isso 50% -> foi reduzido para 49% pelo fato q essa classe esta referenciando outros elementos e o restando outros 1% esta na classe abaixo*/
+  float: left; /*deixou a coluna flutuante a esquerda, mas tem reflexo*/
+}
+.col-metade:first-child{
+  margin-right: 1%; /*colocando margem a direita entre os inputs de formularios, para ficarem separados*/
+}
+.col-metade:last-child{
+  margin-left: 1%; /*colocando margem a direita entre os inputs de formularios, para ficarem separados*/
+}
+
+.col2-row3{
+  width: 66%; /*tamanho da div do form*/
+  float: left; /*deixar a div flutuando*/
+}
+.col1-row3{
+  width: 32%;/*tamanho da div da tag address*/
+  /*margin-left: 3%;/*para ficar espaço entre as div's*/
+  float: left;/*deixar a div flutuando*/
+}
+.col1-row3:nth-child(3n - 2){ /* vai pegar os elementos 1,4,7 -> formula matemática para pegar os elementos do meio, a cada multiplo de 3 - 1 pega os do meio*/
+  margin-right: 2%;
+}
+.col1-row3:nth-child(3n){ /* vai pegar os elementos 3,6,9 -> formula matemática para pegar os elementos do meio, a cada multiplo de 3 - 1 pega os do meio*/
+  margin-left: 2%;
+}
+.col2-row3 + .col1-row3, .col1-row3 + .col2-row3{ /* "+" -> vai selecionar o elemento .col1-row3 imediatamente após o elemento .col2-row3 */
+  margin-left: 2%;
+}
